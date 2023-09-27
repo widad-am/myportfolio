@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import SectionHeading from './section-heading'
 import { projectsData } from '@/lib/data'
 import { type } from 'os'
+import { useScroll } from 'framer-motion';
 import Image from 'next/image'
+import Project from './project';
 export default function Projects() {
     return (
         <section>
@@ -17,18 +19,4 @@ export default function Projects() {
             </div>
         </section>
     )
-}
-
-type ProjectProps = (typeof projectsData)[number];
-function Project({ title, description, tags, imageUrl }) {
-    return <section>
-        {title}
-        {description}
-        <ul>
-            {tags.map((tag, index) => (
-                <li key={index}>{tags}</li>
-            ))}
-            <Image  src={imageUrl} alt="Projects i worked on " quality={95} />
-        </ul>
-    </section>;
 }
